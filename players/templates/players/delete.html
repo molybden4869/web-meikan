@@ -1,0 +1,31 @@
+{% extends 'players/layout.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block header %}
+<h1 class="display-4 text-primary">{{title}}</h1>
+<form action="{% url 'delete' id %}" method="post">
+<p> 以下のデータを削除しますか？ </p>
+<table class="table">
+    <tr><th>選手名</th><td>{{player.name}}</td></tr>
+    <tr><th>背番号</th><td>{{player.uniform_number}}</td></tr>
+    <tr><th>守備位置</th><td>{{player.position}}</td></tr>
+    <tr><th>生年月日</th><td>{{player.birthday}}</td></tr>
+    <tr><th>身長</th><td>{{player.height}}</td></tr>
+    <tr><th>体重</th><td>{{player.weight}}</td></tr>
+    <tr><th>投打</th><td>{{player.pitch_and_bat}}</td></tr>
+    <tr><th>ドラフト順位</th><td>{{player.draft_round}}</td></tr>
+    <tr><th>プロ通算年数</th><td>{{player.professional_years}}</td></tr>
+    <tr><th>選手応援歌</th><td>{{object.cheerind_song}}</td></tr>
+    <tr><th>選手紹介</th><td>{{player.coment}}</td></tr>
+    <form action="{% url 'delete' id %}" method="post">
+    {% csrf_token %}
+    <tr><th></th><td>
+        <a href="{{request.META.HTTP_REFERER}}"
+            class="btn btn-primary mt-2">戻る</a>
+        <input type="submit" value="削除"
+            class="btn btn-primary mt-2">
+    </td></tr>
+    </form>
+</table>
+{% endblock %}

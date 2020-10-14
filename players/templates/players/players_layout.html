@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
+    crossorigin="anonymous">
+    
+</head>
+<body class="container"> 
+    <nav class="navbar navbar-expand navbar-light bg-light">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'create' %}">選手の登録</a>
+        </li>
+    </ul>
+    </nav>
+
+    <div>{% block header %}{% endblock %}</div>
+    <p> 編集をクリックすると選手情報の編集ページに、
+        削除をクリックすると選手情報の削除ページに繋がります。</p>
+    <p>選手の追加登録は上のリストから。</p>
+    <table class="table">
+        <tr>
+            <th>背番号</th>
+            <th>選手名</th>
+        </tr>
+    {% for item in data %}
+        <tr>
+            <td>{{item.uniform_number}}</td>
+            <td>{{item.name}}</td>
+            <td><a href="{% url 'detail' item.id %}">詳細</a></td>
+            <td><a href="{% url 'edit' item.id %}">編集</a></td>
+            <td><a href="{% url 'delete' item.id %}">削除</a></td>    
+        </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>

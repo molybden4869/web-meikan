@@ -1,0 +1,26 @@
+{% extends 'players/layout.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block header %}
+<h1 class="display-4 text-primary">{{title}}</h1>
+<p> プロ野球Web選手名鑑です。</p>
+<p> 誰でも、選手の追加・選手情報の編集・選手情報の削除が可能です。</p>
+<p> 選手一覧をクリックすると各球団の選手名鑑にアクセスできます。</p>
+    
+<table class="table">
+    <tr><th>セリーグ</th><td></td><th>パリーグ</th><td></td></tr>
+    <tr><td class="text-white bg-dark">読売ジャイアンツ</td><td><a href="{% url 'G_players' %}">選手一覧</a></td>
+        <td class="text-white bg-primary">埼玉西武ライオンズ</td><td><a href="{% url 'L_players' %}">選手一覧</a></td></tr>
+    <tr><td class="text-primary bg-white">横浜DeNAベイスターズ</td><td><a href="{% url 'DB_players' %}">選手一覧</a></td>
+        <td class="text-warning bg-dark">福岡ソフトバンクホークス</td><td><a href="{% url 'H_players' %}">選手一覧</a></td></tr>
+    <tr><td class="bg-warning">阪神タイガース</td><td><a href="{% url 'T_players' %}">選手一覧</a></td>
+        <td class="text-warning bg-danger">東北楽天イーグルス</td><td><a href="{% url 'E_players' %}">選手一覧</a></td></tr>
+    <tr><td class="text-white bg-danger">広島東洋カープ</td><td><a href="{% url 'C_players' %}">選手一覧</a></td>
+        <td class="text-white bg-secondary">千葉ロッテマリーンズ</td><td><a href="{% url 'M_players' %}">選手一覧</a></td></tr>
+    <tr><td class="text-white bg-primary">中日ドラゴンズ</td><td><a href="{% url 'D_players' %}">選手一覧</a></td>
+        <td>北海道日本ハムファイターズ</td><td><a href="{% url 'F_players' %}">選手一覧</a></td></tr>
+    <tr><td class="bg-success">東京ヤクルトスワローズ</td><td><a href="{% url 'S_players' %}">選手一覧</a></td>
+        <td class="bg-info">オリックスバファローズ</td><td><a href="{% url 'Bs_players' %}">選手一覧</a></td></tr>
+</table>
+{% endblock %}

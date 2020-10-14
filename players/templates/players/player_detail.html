@@ -1,0 +1,24 @@
+{% extends 'players/layout.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block header %}
+<h1 class="display-4 text-primary">選手情報</h1>
+<table class="table">
+    <tr><th>選手名</th><td>{{object.name}}</td></tr>
+    <tr><th>背番号</th><td>{{object.uniform_number}}</td></tr>
+    <tr><th>守備位置</th><td>{{object.position}}</td></tr>
+    <tr><th>生年月日</th><td>{{object.birthday}}</td></tr>
+    <tr><th>身長</th><td>{{object.height}} cm</td></tr>
+    <tr><th>体重</th><td>{{object.weight}} kg</td></tr>
+    <tr><th>投打</th><td>{{object.pitch_and_bat}}</td></tr>
+    <tr><th>ドラフト順位</th><td>{{object.draft_round}}</td></tr>
+    <tr><th>プロ通算年数</th><td>{{object.professional_years}} 年</td></tr>
+    <tr><th>選手応援歌</th><td>{{object.cheering_song}}</td></tr>
+    <tr><th>選手紹介</th><td>{{object.coment}}</td></tr>
+    <tr><th></th><td>
+        <a href="{{request.META.HTTP_REFERER}}"
+            class="btn btn-primary mt-2">戻る</a>
+    </td></tr>
+</table>
+{% endblock %}
